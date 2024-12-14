@@ -5,12 +5,15 @@ data "aws_vpc" "default" {
 
 # Fetch the default Subnet IDs
 data "aws_subnets" "default" {
-  vpc_id = data.aws_vpc.default.id
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
 }
 
 # Use the first default Subnet (for simplicity)
 data "aws_subnet" "default" {
-  id = data.aws_subnet_ids.default.ids[0]
+  id = data.aws_subnets.default.ids[0]
 }
 
 # Create a Security Group for RDS
@@ -56,7 +59,7 @@ resource "aws_db_instance" "cbz_db_instance" {
 # Create a DB Subnet Group using default subnets
 resource "aws_db_subnet_group" "default" {
   name       = "default-db-subnet-group"
-  subnet_ids = data.aws_subnet_ids.default.ids
+  subnet_ids = data.aws_subnets.default.ids
   tags = {
     Name = "default-db-subnet-group"
   }

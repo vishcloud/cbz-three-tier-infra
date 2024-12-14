@@ -38,6 +38,7 @@ resource "aws_s3_bucket_policy" "static_website_policy" {
       }
     ]
   })
+  depends_on = [aws_s3_bucket_public_access_block.example]
 }
 
 # Output the bucket's website endpoint

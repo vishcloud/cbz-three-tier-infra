@@ -14,6 +14,15 @@ resource "aws_s3_bucket" "cbz_bucket" {
   }
 }
 
+# Disable Block Public Access
+resource "aws_s3_bucket_public_access_block" "example" {
+  bucket = aws_s3_bucket.cbz.bucket
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
 # Set the bucket policy to allow public read access (use cautiously)
 resource "aws_s3_bucket_policy" "static_website_policy" {
   bucket = aws_s3_bucket.cbz_bucket.id

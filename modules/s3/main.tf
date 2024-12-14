@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "cbz_bucket" {
 
 # Disable Block Public Access
 resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.cbz.bucket
+  bucket = aws_s3_bucket.cbz_bucket.bucket
 
   block_public_acls       = false
   block_public_policy     = false

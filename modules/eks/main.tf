@@ -75,7 +75,7 @@ data "aws_subnets" "default" {
 
 # Create an EKS Cluster
 resource "aws_eks_cluster" "cbz_cluster" {
-  name     = "$-cluster"
+  name     = "${var.project}-cluster"
   role_arn = aws_iam_role.eks_cluster_role.arn
 
   vpc_config {

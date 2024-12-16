@@ -96,7 +96,7 @@ resource "aws_eks_node_group" "cbz_nodegroup" {
   subnet_ids      = data.aws_subnets.default.ids
 
   scaling_config {
-    desired_size = 2
+    desired_size = 
     max_size     = 3
     min_size     = 1
   }

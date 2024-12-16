@@ -101,7 +101,7 @@ resource "aws_eks_node_group" "cbz_nodegroup" {
     min_size     = var.min_nodes
   }
 
-  instance_types = ["t3.medium"]
+  instance_types = [var.node_instance_type]
 
   depends_on = [
     aws_iam_role_policy_attachment.eks_worker_node_policy,

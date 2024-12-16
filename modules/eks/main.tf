@@ -109,9 +109,3 @@ resource "aws_eks_node_group" "cbz_nodegroup" {
     aws_iam_role_policy_attachment.ec2_container_policy
   ]
 }
-
-# Output the kubeconfig
-# output "kubeconfig" {
-#   value = aws_eks_cluster.cbz_cluster.identity[0].oidc.issuer
-#   description = "Run 'aws eks update-kubeconfig --name cbz-cluster' to configure kubeconfig"
-# }

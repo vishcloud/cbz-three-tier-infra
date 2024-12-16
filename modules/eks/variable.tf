@@ -1,5 +1,2 @@
-variable project {
-  type        = string
-  default     = ""
-  description = "description"
-}
+variable project {}
+

@@ -91,7 +91,7 @@ resource "aws_eks_cluster" "cbz_cluster" {
 # Create a Node Group
 resource "aws_eks_node_group" "cbz_nodegroup" {
   cluster_name    = aws_eks_cluster.cbz_cluster.name
-  node_group_name = "cbz-node-group"
+  node_group_name = "${var.project}-node-group"
   node_role_arn   = aws_iam_role.eks_node_role.arn
   subnet_ids      = data.aws_subnets.default.ids
 

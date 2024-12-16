@@ -98,7 +98,7 @@ resource "aws_eks_node_group" "cbz_nodegroup" {
   scaling_config {
     desired_size = var.desired_nodes
     max_size     = var.max_nodes
-    min_size     = 1
+    min_size     = var.min_nodes
   }
 
   instance_types = ["t3.medium"]

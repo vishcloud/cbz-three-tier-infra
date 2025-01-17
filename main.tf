@@ -8,7 +8,7 @@ module "rds" {
 
 module "eks" {
     source = "./modules/eks"
-    project = "cbz"
+    project = "cbz01"
     desired_nodes = 2
     max_nodes  = 2
     min_nodes  = 2
